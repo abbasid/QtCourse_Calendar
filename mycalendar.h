@@ -17,6 +17,7 @@ class MyCalendar : public QMainWindow
 public:
     explicit MyCalendar(QWidget *parent = 0);
     void updateDate();
+    void addTimeInterval();
     ~MyCalendar();
 
 private slots:
