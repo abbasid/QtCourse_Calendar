@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include <QDateTime>
 #include <qDebug>
-#include <QTextCodec>
 #include <QLocale>
 
 namespace Ui {
@@ -17,12 +16,18 @@ class MyCalendar : public QMainWindow
 
 public:
     explicit MyCalendar(QWidget *parent = 0);
+    void updateDate();
     ~MyCalendar();
+
+private slots:
+    void on_lastWeek_clicked();
+
+    void on_nextWeek_clicked();
 
 private:
     Ui::MyCalendar *ui;
-    int currentDay;
-    bool isDay;
+    QDateTime date;
+
 };
 
 #endif // MYCALENDAR_H
