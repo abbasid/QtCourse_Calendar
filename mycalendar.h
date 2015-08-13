@@ -2,6 +2,10 @@
 #define MYCALENDAR_H
 
 #include <QMainWindow>
+#include <QDateTime>
+#include <qDebug>
+#include <QTextCodec>
+#include <QLocale>
 
 namespace Ui {
 class MyCalendar;
@@ -17,6 +21,8 @@ public:
 
 private:
     Ui::MyCalendar *ui;
+    int currentDay;
+    bool isDay;
 };
 
 #endif // MYCALENDAR_H
