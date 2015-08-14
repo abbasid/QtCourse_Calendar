@@ -13,8 +13,13 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mycalendar.cpp
+        mycalendar.cpp \
+    singleeventdialog.cpp \
+    eventinfo.cpp
 
-HEADERS  += mycalendar.h
+HEADERS  += mycalendar.h \
+    singleeventdialog.h \
+    eventinfo.h
 
-FORMS    += mycalendar.ui
+FORMS    += mycalendar.ui \
+    singleeventdialog.ui
