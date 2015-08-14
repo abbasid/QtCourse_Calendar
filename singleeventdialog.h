@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <QVector>
+#include <QDateTime>
+#include <QLocale>
 #include "eventinfo.h"
 
 namespace Ui {
@@ -14,7 +16,8 @@ class singleEventDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit singleEventDialog(QWidget *parent = 0);
+    explicit singleEventDialog(int row, int column, QWidget *parent = 0);
+    void updateDateRow();
     ~singleEventDialog();
 
 private slots:
@@ -24,6 +27,11 @@ private:
     Ui::singleEventDialog *ui;
     eventInfo Event;
     QVector<eventInfo> event;
+    QDateTime currentDate;
+    int schedule_row;
+    int schedule_column;
+    int currentDateRow;
+    QLocale local = QLocale::English;
 };
 
 #endif // SINGLEEVENTDIALOG_H

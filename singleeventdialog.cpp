@@ -1,11 +1,35 @@
 #include "singleeventdialog.h"
 #include "ui_singleeventdialog.h"
 
-singleEventDialog::singleEventDialog(QWidget *parent) :
+singleEventDialog::singleEventDialog(int row, int column, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::singleEventDialog)
 {
     ui->setupUi(this);
+    schedule_row = row;;
+    schedule_column = column;
+    currentDate = currentDate.currentDateTime();
+    updateDateRow();
+    ui->time_year->setText(currentDate.toString("yyyy"));
+}
+
+void singleEventDialog::updateDateRow()
+{
+    QDateTime dateTmp;
+    if (local.toString(currentDate, "ddd") == "Sun")
+        currentDateRow = 0;
+    else if (local.toString(currentDate, "ddd") == "Mon")
+        currentDateRow = 1;
+    else if (local.toString(currentDate, "ddd") == "Tue")
+        currentDateRow = 2;
+    else if (local.toString(currentDate, "ddd") == "Wed")
+        currentDateRow = 3;
+    else if (local.toString(currentDate, "ddd") == "Thu")
+        currentDateRow = 4;
+    else if (local.toString(currentDate, "ddd") == "Fri")
+        currentDateRow = 5;
+    else if (local.toString(currentDate, "ddd") == "Sat")
+        currentDateRow = 6;
 }
 
 singleEventDialog::~singleEventDialog()
