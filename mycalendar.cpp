@@ -87,7 +87,7 @@ void MyCalendar::on_nextWeek_clicked()
 
 void MyCalendar::on_scheduleTable_cellClicked(int row, int column)
 {
-   singleEventDialog myEvent(row, column);
+   singleEventDialog myEvent(row, column, date);
    myEvent.setModal(true);
    myEvent.exec();
 }

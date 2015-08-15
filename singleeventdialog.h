@@ -16,8 +16,8 @@ class singleEventDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit singleEventDialog(int row, int column, QWidget *parent = 0);
-    void updateDateRow();
+    explicit singleEventDialog(int row, int column, QDateTime date, QWidget *parent = 0);
+    void updateDateColumn();
     ~singleEventDialog();
 
 private slots:
@@ -30,7 +30,7 @@ private:
     QDateTime currentDate;
     int schedule_row;
     int schedule_column;
-    int currentDateRow;
+    int currentDateColumn;
     QLocale local = QLocale::English;
 };
 

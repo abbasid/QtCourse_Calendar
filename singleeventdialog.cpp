@@ -1,35 +1,39 @@
 #include "singleeventdialog.h"
 #include "ui_singleeventdialog.h"
 
-singleEventDialog::singleEventDialog(int row, int column, QWidget *parent) :
+singleEventDialog::singleEventDialog(int row, int column, QDateTime date, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::singleEventDialog)
 {
     ui->setupUi(this);
     schedule_row = row;;
     schedule_column = column;
-    currentDate = currentDate.currentDateTime();
-    updateDateRow();
+    currentDate = date; //currentDate.currentDateTime();
+    updateDateColumn();
     ui->time_year->setText(currentDate.toString("yyyy"));
 }
 
-void singleEventDialog::updateDateRow()
+void singleEventDialog::updateDateColumn()
 {
     QDateTime dateTmp;
+    int userClickedColumn;
     if (local.toString(currentDate, "ddd") == "Sun")
-        currentDateRow = 0;
+        currentDateColumn = 0;
     else if (local.toString(currentDate, "ddd") == "Mon")
-        currentDateRow = 1;
+        currentDateColumn = 1;
     else if (local.toString(currentDate, "ddd") == "Tue")
-        currentDateRow = 2;
+        currentDateColumn = 2;
     else if (local.toString(currentDate, "ddd") == "Wed")
-        currentDateRow = 3;
+        currentDateColumn = 3;
     else if (local.toString(currentDate, "ddd") == "Thu")
-        currentDateRow = 4;
+        currentDateColumn = 4;
     else if (local.toString(currentDate, "ddd") == "Fri")
-        currentDateRow = 5;
+        currentDateColumn = 5;
     else if (local.toString(currentDate, "ddd") == "Sat")
-        currentDateRow = 6;
+        currentDateColumn = 6;
+    dateTmp = currentDate.addDays(schedule_column - currentDateColumn - 1);
+    ui->time_month->setText(dateTmp.toString("MM"));
+    ui->time_date->setText(dateTmp.toString("dd"));
 }
 
 singleEventDialog::~singleEventDialog()
