@@ -6,6 +6,7 @@
 #include <QDateTime>
 #include <QLocale>
 #include "eventinfo.h"
+#include "mycalendar.h"
 
 namespace Ui {
 class singleEventDialog;

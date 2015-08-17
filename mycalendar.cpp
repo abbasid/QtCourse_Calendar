@@ -90,4 +90,18 @@ void MyCalendar::on_scheduleTable_cellClicked(int row, int column)
    singleEventDialog myEvent(row, column, date);
    myEvent.setModal(true);
    myEvent.exec();
+   if(myEvent.isModal())
+   {
+
+   }
 }
+int MyCalendar::getDuration() const
+{
+    return duration;
+}
+
+void MyCalendar::setDuration(int value)
+{
+    duration = value;
+}
+
