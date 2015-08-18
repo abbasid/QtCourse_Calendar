@@ -52,4 +52,6 @@ void singleEventDialog::on_saveButton_clicked()
     Event.setLocation(ui->location->text());
     Event.setNote(ui->note->toPlainText());
     event.append(Event);
+    emit sendDuration(ui->duration->currentRow());
+
 }

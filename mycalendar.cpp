@@ -73,6 +73,11 @@ MyCalendar::~MyCalendar()
     delete ui;
 }
 
+void MyCalendar::receiveDuration(int duration)
+{
+    myCalendar_duration = duration;
+}
+
 void MyCalendar::on_lastWeek_clicked()
 {
     date = date.addDays(-7);
@@ -87,7 +92,13 @@ void MyCalendar::on_nextWeek_clicked()
 
 void MyCalendar::on_scheduleTable_cellClicked(int row, int column)
 {
-   singleEventDialog myEvent(row, column, date);
-   myEvent.setModal(true);
-   myEvent.exec();
+    userClicked_row = row;
+    userCliecked_column = column;
+    singleEventDialog myEvent(row, column, date);
+    myEvent.setModal(true);
+    connect(&myEvent, SIGNAL(sendDuration(int)), this, SLOT(receiveDuration(int)));
+    qDebug() << myCalendar_duration;
+    myEvent.exec();
+
 }
+

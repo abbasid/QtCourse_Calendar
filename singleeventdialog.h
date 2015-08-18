@@ -6,6 +6,7 @@
 #include <QDateTime>
 #include <QLocale>
 #include "eventinfo.h"
+//#include "mycalendar.h"
 
 namespace Ui {
 class singleEventDialog;
@@ -20,8 +21,13 @@ public:
     void updateDateColumn();
     ~singleEventDialog();
 
+signals:
+       void sendDuration(int duration);
+
+
 private slots:
     void on_saveButton_clicked();
+
 
 private:
     Ui::singleEventDialog *ui;

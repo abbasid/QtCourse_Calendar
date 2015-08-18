@@ -21,6 +21,9 @@ public:
     void addTimeInterval();
     ~MyCalendar();
 
+public slots:
+    void receiveDuration(int duration);
+
 private slots:
     void on_lastWeek_clicked();
 
@@ -31,6 +34,9 @@ private slots:
 private:
     Ui::MyCalendar *ui;
     QDateTime date;
+    int userClicked_row;
+    int userCliecked_column;
+    int myCalendar_duration;
 
 };
 
